@@ -60,16 +60,38 @@ wget https://github-production-release-asset-2e65be.s3.amazonaws.com/125932201/1
 python3 Detection.py
 ```
 
-Got error
+Got some issue error 
 ```
 root@object-detection:~/test# python3 Detection.py 
 python3: Relink `/lib/x86_64-linux-gnu/libsystemd.so.0' with `/lib/x86_64-linux-gnu/librt.so.1' for IFUNC symbol `clock_gettime'
 python3: Relink `/lib/x86_64-linux-gnu/libudev.so.1' with `/lib/x86_64-linux-gnu/librt.so.1' for IFUNC symbol `clock_gettime'
 Segmentation fault (core dumped)
 ```
-
+but able to fix it by running below command 
 ```
 apt install python3-opencv
 ```
 
+Input file 
+[images/image_rit1.pdf](images/image_rit1.jpg)
+
+
+After running Detection.py file you will find one newly created file image_rit_new.jpg and folder image_rit_new.jpg-objects
+
+```
+.
+├── image_rit1.jpg
+├── image_rit_new.jpg
+└── image_rit_new.jpg-objects
+    ├── apple-5.jpg
+    ├── chair-4.jpg
+    ├── cup-6.jpg
+    ├── dining\ table-2.jpg
+    ├── dining\ table-3.jpg
+    ├── person-7.jpg
+    └── vase-1.jpg
+```
+
+Output file 
+[images/image_rit_new.pdf](images/image_rit_new.jpg)
 
