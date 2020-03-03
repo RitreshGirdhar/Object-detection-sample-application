@@ -73,8 +73,7 @@ apt install python3-opencv
 ```
 
 Input file 
-[images/image_rit1.pdf](images/image_rit1.jpg)
-
+![Input file](/images/image_rit1.jpg?raw=true "Input file")
 
 After running Detection.py file you will find one newly created file image_rit_new.jpg and folder image_rit_new.jpg-objects
 
@@ -93,5 +92,6 @@ After running Detection.py file you will find one newly created file image_rit_n
 ```
 
 Output file 
-[images/image_rit_new.pdf](images/image_rit_new.jpg)
+![Output file](/images/image_rit_new.jpg?raw=true "Output file")
+
 
