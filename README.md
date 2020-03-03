@@ -1,7 +1,7 @@
-# Object-detection-demo
+# Object detection Demo 
 
-Demo steps 
-* create Ubuntu virtual machine on Azure cloud.
+Steps to set up 
+* Using Ubuntu virtual machine on Azure cloud.
 ```
 root@instance-2:~/object-detection# cat /etc/os-release 
 NAME="Ubuntu"
@@ -18,18 +18,18 @@ VERSION_CODENAME=bionic
 UBUNTU_CODENAME=bionic
 ```
 
-* Instally python 
+* Installing python 
 ```
 apt-get update
 apt-get install python3-pip
 ```
 
-* Install following packages
-
+* Installing following packages
 ```
 pip3 install -U tensorflow keras opencv-python
-
+pip3 install imageai
 ```
+
 * Create a file name Detection.py 
 ```
 from imageai.Detection import ObjectDetection
@@ -42,12 +42,11 @@ detector.setModelTypeAsYOLOv3()
 detector.setModelPath( os.path.join(execution_path , "yolo.h5"))
 detector.loadModel()
 
-custom_objects = detector.CustomObjects(car=True, motorcycle=True)
+detections, objects_path = detector.detectObjectsFromImage(input_image=os.path.join(execution_path , "image3.jpg"), output_image_path=os.path.join(execution_path , "image3new.jpg"), minimum_percentage_probability=30,  extract_detected_objects=True)
 
-detections = detector.detectObjectsFromImage(input_image=os.path.join(execution_path , "apple_image.jpg"), output_image_path=os.path.join(execution_path , "apple_image_nodetails.jpg"), minimum_percentage_probability=30, display_percentage_probability=False, display_object_name=False)
-
-for eachObject in detections:
-    print(eachObject["name"] , " : ", eachObject["percentage_probability"], " : ", eachObject["box_points"] )
+for eachObject, eachObjectPath in zip(detections, objects_path):
+    print(eachObject["name"] , " : " , eachObject["percentage_probability"], " : ", eachObject["box_points"] )
+    print("Object's image saved in " + eachObjectPath)
     print("--------------------------------")
 ```
 
@@ -61,5 +60,16 @@ wget https://github-production-release-asset-2e65be.s3.amazonaws.com/125932201/1
 python3 Detection.py
 ```
 
+Got error
+```
+root@object-detection:~/test# python3 Detection.py 
+python3: Relink `/lib/x86_64-linux-gnu/libsystemd.so.0' with `/lib/x86_64-linux-gnu/librt.so.1' for IFUNC symbol `clock_gettime'
+python3: Relink `/lib/x86_64-linux-gnu/libudev.so.1' with `/lib/x86_64-linux-gnu/librt.so.1' for IFUNC symbol `clock_gettime'
+Segmentation fault (core dumped)
+```
+
+```
+apt install python3-opencv
+```
 
 
