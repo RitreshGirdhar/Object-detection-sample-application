@@ -55,7 +55,7 @@ wget https://github-production-release-asset-2e65be.s3.amazonaws.com/125932201/1
 ```
 python3 Detection.py
 ```
-Got some issue error 
+Got some issue while running 
 ```
 root@object-detection:~/test# python3 Detection.py 
 python3: Relink `/lib/x86_64-linux-gnu/libsystemd.so.0' with `/lib/x86_64-linux-gnu/librt.so.1' for IFUNC symbol `clock_gettime'
