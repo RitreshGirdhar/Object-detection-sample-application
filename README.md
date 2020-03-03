@@ -20,7 +20,8 @@ UBUNTU_CODENAME=bionic
 
 * Instally python 
 ```
-
+apt-get update
+apt-get install python3-pip
 ```
 
 * Install following packages
