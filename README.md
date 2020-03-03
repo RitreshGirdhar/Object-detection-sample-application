@@ -1,21 +1,17 @@
-# Object detection Demo 
+# Object detection Demo - using ImageAI library
 
-Steps to set up 
-* Using Ubuntu virtual machine on Azure cloud.
+#### Pre-requisite 
+* Basic knowledge of ubuntu commands
+* Basic knowledge of python3 and pi3 (Upgrade to python3 if you are on python2.x)
+
+
+### Steps to set up - Object Detection Demo
+* I am using Ubuntu virtual machine on Azure cloud for testing this.
 ```
-root@instance-2:~/object-detection# cat /etc/os-release 
+cat /etc/os-release 
 NAME="Ubuntu"
 VERSION="18.04.4 LTS (Bionic Beaver)"
 ID=ubuntu
-ID_LIKE=debian
-PRETTY_NAME="Ubuntu 18.04.4 LTS"
-VERSION_ID="18.04"
-HOME_URL="https://www.ubuntu.com/"
-SUPPORT_URL="https://help.ubuntu.com/"
-BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
-PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
-VERSION_CODENAME=bionic
-UBUNTU_CODENAME=bionic
 ```
 
 * Installing python 
@@ -24,7 +20,7 @@ apt-get update
 apt-get install python3-pip
 ```
 
-* Installing following packages
+* Install following packages
 ```
 pip3 install -U tensorflow keras opencv-python
 pip3 install imageai
@@ -59,7 +55,6 @@ wget https://github-production-release-asset-2e65be.s3.amazonaws.com/125932201/1
 ```
 python3 Detection.py
 ```
-
 Got some issue error 
 ```
 root@object-detection:~/test# python3 Detection.py 
@@ -67,7 +62,8 @@ python3: Relink `/lib/x86_64-linux-gnu/libsystemd.so.0' with `/lib/x86_64-linux-
 python3: Relink `/lib/x86_64-linux-gnu/libudev.so.1' with `/lib/x86_64-linux-gnu/librt.so.1' for IFUNC symbol `clock_gettime'
 Segmentation fault (core dumped)
 ```
-but able to fix it by running below command 
+
+But able to fix it by running below command 
 ```
 apt install python3-opencv
 ```
@@ -93,5 +89,3 @@ After running Detection.py file you will find one newly created file image_rit_n
 
 Output file 
 ![Output file](/images/image_rit_new.jpg?raw=true "Output file")
-
-
